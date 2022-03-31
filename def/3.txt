@@ -1,0 +1,28 @@
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, confusion_matrix
+from sklearn.tree import DecisionTreeClassifier, plot_tree
+import matplotlib.pyplot as plt
+import seaborn as seaborn
+
+irisData = seaborn.load_dataset('iris')
+
+x = irisData.drop('species', axis=1)
+y = irisData['species']
+
+
+x_train, x_test, y_train, y_test=train_test_split(x, y, test_size=0.35, random_state=35)
+
+dt = DecisionTreeClassifier()
+dt.fit(x_train,y_train)
+
+predict = dt.predict(x_test)
+print(predict)
+
+accuracy = accuracy_score(y_test,predict)
+print("Accuracy: \n", accuracy)
+
+cm = confusion_matrix(y_test,predict)
+print("CM \n", cm)
+
+dtgraph = plot_tree(decision_tree=dt,feature_names=irisData.columns,class_names=['a','b','c'],filled=True)
+plt.savefig('tree.png')
