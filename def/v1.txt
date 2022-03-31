@@ -1,0 +1,26 @@
+#histogram
+import numpy as np
+import matplotlib.pyplot as plt
+bins=10
+data=np.random.randn(1000,3)
+colors=['blue','green','red']
+plt.hist(data,bins,histtype='bar',color=colors,stacked=True,fill=True)
+plt.show()
+
+# scatter diagram
+
+import plotly.express as px
+df=px.data.iris()
+fig=px.scatter_matrix(df,dimensions=["sepal_width","sepal_length","petal_width","petal_length"],color="species",symbol="species",title="Scatter matrix of iris data set",labels={col:col.replace('_','_')for col in df.columns})
+fig.update_traces(diagonal_visible=False)
+fig.show()
+
+#histogram
+import matplotlib.pyplot as plt
+import plotly.express as pl
+
+import seaborn as sns
+df=pl.data.iris()
+data=df['sepal_width']
+sns.displot(data)
+plt.show()
