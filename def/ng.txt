@@ -6,3 +6,16 @@ def generate_ngrams(text, WordsToCombine):
  return output 
 x = generate_ngrams(text="this is a very good book study", WordsToCombine=3) 
 print(x) 
+
+
+
+
+
+#inbulid
+import nltk 
+nltk.download()
+from nltk.util import ngrams 
+sampletext="This is a very good book to study" 
+NGRAMS=ngrams(sequence=nltk.word_tokenize(sampletext),n=2) 
+for grams in NGRAMS: 
+ print(grams)
