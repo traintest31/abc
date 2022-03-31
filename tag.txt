@@ -1,21 +1,13 @@
-from cgitb import text
-import nltk
-from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize, sent_tokenize
-stop_words = set(stopwords.words('english'))
+import requests
+from bs4 import BeautifulSoup
 
-txt = "Sukanya, Rajib and Naba are my good friends,"\
-"Sukanya is getting married next year."\
-"Marriage is a big step in one's life."\
-"It is both exiting and frightening." \
-"But friendship is a sacred bond between people."\
-"It is a special kind of love between us"\
-"Many of you must have tried searching for a friend"\
-"but never found the right one."
+url = "https://github.com/traintest31/abc/tree/main/def/svd.txt"
+r = requests.get(url)
+soup = BeautifulSoup(r.text, 'html.parser')
 
-tokenized = sent_tokenize(txt)
-for i in tokenized:
- wordsList = nltk.word_tokenize(i)
- wordsList = [w for w in wordsList if not w in stop_words]
- tagged = nltk.pos_tag(wordsList)
- print(tagged)
+for i in soup.find_all('table'):
+    data = i.text
+
+    f = open("svd.py", "w")
+    f.write(data+"\n")
+    f.close()
