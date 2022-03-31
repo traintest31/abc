@@ -1,0 +1,36 @@
+# n+n*n+n*n*n
+# n = int(input("enter the number :"))
+# print(n+n*n+n*n*n)
+********************************
+# find large elment in the list
+# l1 = [2,5,4,6]
+# print(l1)
+# print("large element is",max(l1))
+*************************************
+# copy list l1 to l2
+# l1 = [2,5,4,6]
+# print("l1 is",l1)
+# l2 = l1.copy()
+# print("l2 is",l2)
+******************************
+# list shuffle
+# import random
+#
+# l1 = [2, 5, 4, 6]
+# random.shuffle(l1)
+# print(l1)
+
+********************************
+
+# merge 2 dictionary
+# dic1 = {1:"q",2:"w",3:"e"}
+# dic2 = {4:"a",5:"s",6:"d"}
+#
+# dic1.update(dic2)
+# print(dic1)
+*********************
+# update dictionary
+dic1 = {1:"q",2:"w",3:"e"}
+dic1[4]="s"
+dic1[5]="ww"
+print(dic1)
