@@ -1,0 +1,28 @@
+import numpy
+array1 = []
+n=int(input("Enter the array Size"))
+for i in range(n):
+ array1.append(int(input("Enter thr first array elements : ")))
+array1=numpy.array(array1)
+print(numpy.floor(array1))
+array2=[]
+for i in range(n):
+ array2.append(int(input("Enter the second array elemensts : ")))
+array2=numpy.array(array2)
+print(numpy.floor(array2))
+print("Array Addition ") 
+print(numpy.add(array1,array2))
+print("Array Substraction ") 
+print(numpy.subtract(array1,array2))
+print("Array Multiplication") 
+print(numpy.multiply(array1,array2))
+print("Array Division") 
+print(numpy.divide(array1,array2))
+print("Array Dot") 
+print(numpy.dot(array1,array2))
+print("Array Squareroot") 
+print(numpy.sqrt(array1))
+print("Array Summation of array1 ") 
+print(numpy.sum(array1))
+print("Array Transpose of array1") 
+print(array1.T)
