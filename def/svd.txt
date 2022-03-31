@@ -1,0 +1,18 @@
+import numpy as np
+from scipy.linalg import svd
+from numpy import diag
+a = np.array([[1, 2, 3], [2, 4, 6], [2, 3, 4]])
+
+# number of rows and columns
+
+U ,s ,VT = svd(a)
+print("Decomposition: ", U)
+print("Inverse: ", s)
+print("Transpose: ", VT)
+
+
+# create n x n Sigma matrix
+Sigma = diag(s)
+# reconstruct matrix
+B = U.dot(Sigma.dot(VT))
+print(B)
