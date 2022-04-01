@@ -1,0 +1,45 @@
+#python program to demonstrate
+#Working of array using pandas
+import pandas as pd
+#declare first array
+student_dict={'Name':['Joe','Nat','vimal'],'Age':[20,21,20]}
+student_df=pd.DataFrame(student_dict)
+print(student_df)
+#declare second array
+marks_dict={'Marks':[85.10,77.80,83.23]}
+mark_df=pd.DataFrame(marks_dict)
+print(mark_df)
+#join two array
+joined_df=student_df.join(mark_df)
+print(joined_df)
+student_dict={'Name':['Joe','Nat','Harrry'],'Age':[20,21,19],'Marks':[85.10,77.80,91.54]}
+student_df=pd.DataFrame(student_dict)
+print(student_df)
+#select top 2 rows
+print(student_df.head(1))
+#select last 2 rows
+print(student_df.tail(1))
+#select value at row index 0 and column'Name'
+print(student_df.at[0,'Name'])
+#select value at first row and first column
+print(student_df.iat[1,0])
+#select values of 'Name' column
+print(student_df.get('Name'))
+
+#select values from row index 0 to 2 and 'Name' column
+print(student_df.loc[0:2,['Name']])
+#sort column by marks
+student_df=student_df.sort_values(by=['Marks'])
+print(student_df)
+#select values fro, row index 0 to 2 (exclusive) and column position 0 to 2 exclusive
+print(student_df.iloc[0:2,0:2])
+#convert dataframe to dict
+dict=student_df.to_dict()
+print(dict)
+#filter a data based on some condition with mark>80
+filter=student_df['Marks']>80
+student_df['Marks'].where(filter,other=0,inplace=True)
+print(student_df)
+#filter in names first name start with 'N' then remaining
+student_nu=student_df.filter(like='N',axis='columns')
+print(student_nu)
